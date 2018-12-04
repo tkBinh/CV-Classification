@@ -1,5 +1,6 @@
 <?php
 
+use \Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +18,20 @@ Route::get('upload-success', 'MainController@getSuccessUploadPage')->name('uploa
 Route::get('upload-file', 'MainController@getUploadPage')->name('upload_file');
 Route::get('upload-file-error', 'MainController@getUploadErrorPage')->name('upload_file_error');
 
-/* Google Login */
-Route::get('auth/google', 'SocialLoginController@redirectToProvider')->name('google.login');
-Route::get('auth/google/callback', 'SocialLoginController@handleProviderCallback');
+//Admin
+Route::get('admin/login', 'Admin\AdminController@getLoginPage')->name('admin.login');
 
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => 'adminLogin' ], function
+() {
+    Route::get('/', 'AdminController@home')->name('dashboard');
+    //Manage
+    Route::get('manage', 'AdminController@getManagePage')->name('manage');
+    Route::get('manage/{manager}', 'AdminController@detail')->name('manage.detail');
+    Route::get('manage/{manager}/edit', 'AdminController@edit')->name('manage.edit');
+    Route::post('manage/delete', 'AdminController@delete')->name('manage.delete');
+});
+
+//Social Login (Google)
+Route::get('auth/google', 'Auth\SocialLoginController@redirectToProvider')->name('google.login');
+Route::get('auth/google/callback', 'Auth\SocialLoginController@handleProviderCallback');
+Route::get('logout', 'Auth\SocialLoginController@logout')->name('logout');
