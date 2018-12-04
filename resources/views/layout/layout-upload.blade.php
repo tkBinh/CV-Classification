@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('page-title')</title>
-    <link rel="stylesheet" href="css/css.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/css.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-grid.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 </head>
 
@@ -21,7 +21,7 @@
             <div class="row justify-content-center row-logo">
                 <div class="col-xs-12 col-sm-4">
                     <div class="logo">
-                        <img class="images-logo" src="images/logo.png" alt="">
+                        <img class="images-logo" src="{{ asset('images/logo.png') }}" alt="">
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                     <ul class="nav navbar-nav pull-right">
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
-                                <img alt="" class="img-circle" src="images/avatar3_small.jpg">
+                                <img alt="" class="img-circle" src="{{ asset('images/avatar3_small.jpg') }}">
                                 <span class="username username-hide-on-mobile"> Nick </span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
@@ -117,8 +117,8 @@
     </div>
 </div>
 </body>
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/common.js"></script>
+<script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/common.js') }}"></script>
 
 </html>
